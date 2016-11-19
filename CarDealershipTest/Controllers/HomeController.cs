@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CarDealershipTest.Resources;
 
 namespace CarDealershipTest.Controllers
 {
@@ -10,7 +11,7 @@ namespace CarDealershipTest.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
+            ViewBag.Title = Resource.sCarDealershipDashboard;
 
             return View();
         }
