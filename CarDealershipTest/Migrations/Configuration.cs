@@ -18,8 +18,67 @@ namespace CarDealershipTest.Migrations
         {
 
             //Creating the initial Areas. There will be two initial Areas
-            Area northArea = new Area() { Name = "North Area" };
-            Area southArea = new Area() { Name = "South Area" };
+            Area northArea = new Area() { Name = "North Area", ID = 1 };
+            Area southArea = new Area() { Name = "South Area", ID = 2 };
+
+            //Creating the initial Regions. There will be four initial Regions
+            Region northernRegionA = new Region() { Name = "Northern Region A", ID = 1, AreaID = 1};
+            Region northernRegionB = new Region() { Name = "Northern Region B", ID = 2, AreaID = 1 };
+            Region southernRegionA = new Region() { Name = "Southern Region A", ID = 3, AreaID = 2 };
+            Region southernRegionB = new Region() { Name = "Southern Region B", ID = 4, AreaID = 3 };
+
+            //Creating the initial Vehicles. There will be four initial Vehicles
+            Vehicle vehicleA = new Vehicle() { Name = "Vehicle A", ID = 1 };
+            Vehicle vehicleB = new Vehicle() { Name = "Vehicle B", ID = 2 };
+            Vehicle vehicleC = new Vehicle() { Name = "Vehicle C", ID = 3 };
+            Vehicle vehicleD = new Vehicle() { Name = "Vehicle D", ID = 4 };
+
+            //Creating the initial Dealers. There will be four initial Dealers, one per Region
+            Dealer northernADealer = new Dealer() { Name = "Northern Dealer A", RegionID = northernRegionA.ID, ID = 1 };
+            Dealer northernBDealer = new Dealer() { Name = "Northern Dealer B", RegionID = northernRegionB.ID, ID = 2 };
+            Dealer southernADealer = new Dealer() { Name = "Southern Dealer A", RegionID = southernRegionA.ID, ID = 3 };
+            Dealer southernBDealer = new Dealer() { Name = "Southern Dealer B", RegionID = southernRegionB.ID, ID = 4 };
+
+            //Creating the initial Staff Members. There will be sixteen Staff members, 2 salesman + 1 accounting + 1 manager per Dealer
+            Staff northernADealerSalesStaff1 = new Staff() { DealerID = northernADealer.ID, FirstName = "Joycelyn", LastName = "Hartsock", JobType = JobType.SalesRep, ID = 1 };
+            Staff northernADealerSalesStaff2 = new Staff() { DealerID = northernADealer.ID, FirstName = "Domingo", LastName = "Clem", JobType = JobType.SalesRep, ID = 2 };
+            Staff northernADealerSalesStaff3 = new Staff() { DealerID = northernADealer.ID, FirstName = "Glen", LastName = "Bollig", JobType = JobType.Accounting, ID = 3 };
+            Staff northernADealerSalesStaff4 = new Staff() { DealerID = northernADealer.ID, FirstName = "Tierra", LastName = "Rosenzweig", JobType = JobType.Manager, ID = 4 };
+            Staff northernBDealerSalesStaff1 = new Staff() { DealerID = northernBDealer.ID, FirstName = "Sanjuana", LastName = "Disla", JobType = JobType.SalesRep, ID = 5 };
+            Staff northernBDealerSalesStaff2 = new Staff() { DealerID = northernBDealer.ID, FirstName = "Leland", LastName = "Kono", JobType = JobType.SalesRep, ID = 6 };
+            Staff northernBDealerSalesStaff3 = new Staff() { DealerID = northernBDealer.ID, FirstName = "Freeman", LastName = "Bagnall", JobType = JobType.Accounting, ID = 7 };
+            Staff northernBDealerSalesStaff4 = new Staff() { DealerID = northernBDealer.ID, FirstName = "Debbie", LastName = "Murton", JobType = JobType.Manager, ID = 8 };
+            Staff southernADealerSalesStaff1 = new Staff() { DealerID = southernADealer.ID, FirstName = "Israel", LastName = "Janas", JobType = JobType.SalesRep, ID = 9 };
+            Staff southernADealerSalesStaff2 = new Staff() { DealerID = southernADealer.ID, FirstName = "Karrie", LastName = "Mccorkle", JobType = JobType.SalesRep, ID = 10 };
+            Staff southernADealerSalesStaff3 = new Staff() { DealerID = southernADealer.ID, FirstName = "Aliza", LastName = "Pickell", JobType = JobType.Accounting, ID = 11 };
+            Staff southernADealerSalesStaff4 = new Staff() { DealerID = southernADealer.ID, FirstName = "Venita", LastName = "Sobczak", JobType = JobType.Manager, ID = 12 };
+            Staff southernBDealerSalesStaff1 = new Staff() { DealerID = southernBDealer.ID, FirstName = "Kacy", LastName = "Nicastro", JobType = JobType.SalesRep, ID = 13 };
+            Staff southernBDealerSalesStaff2 = new Staff() { DealerID = southernBDealer.ID, FirstName = "Adele", LastName = "Gessner", JobType = JobType.SalesRep, ID = 14 };
+            Staff southernBDealerSalesStaff3 = new Staff() { DealerID = southernBDealer.ID, FirstName = "Tameka", LastName = "Pawlowicz", JobType = JobType.Accounting, ID = 15 };
+            Staff southernBDealerSalesStaff4 = new Staff() { DealerID = southernBDealer.ID, FirstName = "Giuseppe", LastName = "Beckmann", JobType = JobType.Manager, ID = 16 };
+
+            //Creating the Sales. 2 sales for each Sales Staff member of the northern regions, 1 per Sales Staff member of the Southern A Region, 
+            //repeated for "DateTime.Today" and "DateTime.Today+3 days"
+            Sale sale1 = new Sale() { DealerID = northernADealer.ID, SaleDate = DateTime.Today, StaffID = northernADealerSalesStaff1.ID, VehicleID = vehicleA.ID, ID = 1 };
+            Sale sale2 = new Sale() { DealerID = northernADealer.ID, SaleDate = DateTime.Today, StaffID = northernADealerSalesStaff1.ID, VehicleID = vehicleB.ID, ID = 2 };
+            Sale sale3 = new Sale() { DealerID = northernADealer.ID, SaleDate = DateTime.Today, StaffID = northernADealerSalesStaff2.ID, VehicleID = vehicleA.ID, ID = 3 };
+            Sale sale4 = new Sale() { DealerID = northernADealer.ID, SaleDate = DateTime.Today, StaffID = northernADealerSalesStaff2.ID, VehicleID = vehicleB.ID, ID = 4 };
+            Sale sale5 = new Sale() { DealerID = northernADealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = northernADealerSalesStaff1.ID, VehicleID = vehicleA.ID, ID = 5 };
+            Sale sale6 = new Sale() { DealerID = northernADealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = northernADealerSalesStaff1.ID, VehicleID = vehicleB.ID, ID = 6 };
+            Sale sale7 = new Sale() { DealerID = northernADealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = northernADealerSalesStaff2.ID, VehicleID = vehicleA.ID, ID = 7 };
+            Sale sale8 = new Sale() { DealerID = northernADealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = northernADealerSalesStaff2.ID, VehicleID = vehicleB.ID, ID = 8 };
+            Sale sale9 = new Sale() { DealerID = northernBDealer.ID, SaleDate = DateTime.Today, StaffID = northernBDealerSalesStaff1.ID, VehicleID = vehicleA.ID, ID = 9 };
+            Sale sale10 = new Sale() { DealerID = northernBDealer.ID, SaleDate = DateTime.Today, StaffID = northernBDealerSalesStaff1.ID, VehicleID = vehicleB.ID, ID = 10 };
+            Sale sale11 = new Sale() { DealerID = northernBDealer.ID, SaleDate = DateTime.Today, StaffID = northernBDealerSalesStaff2.ID, VehicleID = vehicleA.ID, ID = 11 };
+            Sale sale12 = new Sale() { DealerID = northernBDealer.ID, SaleDate = DateTime.Today, StaffID = northernBDealerSalesStaff2.ID, VehicleID = vehicleB.ID, ID = 12 };
+            Sale sale13 = new Sale() { DealerID = northernBDealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = northernBDealerSalesStaff1.ID, VehicleID = vehicleA.ID, ID = 13 };
+            Sale sale14 = new Sale() { DealerID = northernBDealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = northernBDealerSalesStaff1.ID, VehicleID = vehicleB.ID, ID = 14 };
+            Sale sale15 = new Sale() { DealerID = northernBDealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = northernBDealerSalesStaff2.ID, VehicleID = vehicleA.ID, ID = 15 };
+            Sale sale16 = new Sale() { DealerID = northernBDealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = northernBDealerSalesStaff2.ID, VehicleID = vehicleB.ID, ID = 16 };
+            Sale sale17 = new Sale() { DealerID = southernADealer.ID, SaleDate = DateTime.Today, StaffID = southernADealerSalesStaff1.ID, VehicleID = vehicleC.ID, ID = 17 };
+            Sale sale18 = new Sale() { DealerID = southernADealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = southernADealerSalesStaff1.ID, VehicleID = vehicleD.ID, ID = 18 };
+            Sale sale19 = new Sale() { DealerID = southernADealer.ID, SaleDate = DateTime.Today, StaffID = southernADealerSalesStaff2.ID, VehicleID = vehicleC.ID, ID = 19 };
+            Sale sale20 = new Sale() { DealerID = southernADealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = southernADealerSalesStaff2.ID, VehicleID = vehicleD.ID, ID = 20 };
 
             #region  Areas Handling
 
@@ -31,12 +90,6 @@ namespace CarDealershipTest.Migrations
                 );
 
             #endregion
-
-            //Creating the initial Regions. There will be four initial Regions
-            Region northernRegionA = new Region() { Name = "Northern Region A" };
-            Region northernRegionB = new Region() { Name = "Northern Region B" };
-            Region southernRegionA = new Region() { Name = "Southern Region A" };
-            Region southernRegionB = new Region() { Name = "Southern Region B" };
 
             #region Regions handling
 
@@ -51,12 +104,6 @@ namespace CarDealershipTest.Migrations
 
             #endregion
 
-            //Creating the initial Vehicles. There will be four initial Vehicles
-            Vehicle vehicleA = new Vehicle() { Name = "Vehicle A" };
-            Vehicle vehicleB = new Vehicle() { Name = "Vehicle B" };
-            Vehicle vehicleC = new Vehicle() { Name = "Vehicle C" };
-            Vehicle vehicleD = new Vehicle() { Name = "Vehicle D" };
-
             #region  Vehicles handling
 
             //upserting the initial Vehicles
@@ -70,12 +117,6 @@ namespace CarDealershipTest.Migrations
 
             #endregion
 
-            //Creating the initial Dealers. There will be four initial Dealers, one per Region
-            Dealer northernADealer = new Dealer() { Name = "Northern Dealer A", RegionID = northernRegionA.ID };
-            Dealer northernBDealer = new Dealer() { Name = "Northern Dealer B", RegionID = northernRegionB.ID };
-            Dealer southernADealer = new Dealer() { Name = "Southern Dealer A", RegionID = southernRegionA.ID };
-            Dealer southernBDealer = new Dealer() { Name = "Southern Dealer B", RegionID = southernRegionB.ID };
-
             #region  Dealers handling
 
             //upserting the initial Dealers
@@ -88,27 +129,6 @@ namespace CarDealershipTest.Migrations
                 );
 
             #endregion
-
-            //Creating the initial Staff Members. There will be sixteen Staff members, 2 salesman + 1 accounting + 1 manager per Dealer
-            Staff northernADealerSalesStaff1 = new Staff() { DealerID = northernADealer.ID, FirstName = "Joycelyn", LastName = "Hartsock", JobType = JobType.SalesRep};
-            Staff northernADealerSalesStaff2 = new Staff() { DealerID = northernADealer.ID, FirstName = "Domingo", LastName = "Clem", JobType = JobType.SalesRep };
-            Staff northernADealerSalesStaff3 = new Staff() { DealerID = northernADealer.ID, FirstName = "Glen", LastName = "Bollig", JobType = JobType.Accounting };
-            Staff northernADealerSalesStaff4 = new Staff() { DealerID = northernADealer.ID, FirstName = "Tierra", LastName = "Rosenzweig", JobType = JobType.Manager };
-
-            Staff northernBDealerSalesStaff1 = new Staff() { DealerID = northernBDealer.ID, FirstName = "Sanjuana", LastName = "Disla", JobType = JobType.SalesRep };
-            Staff northernBDealerSalesStaff2 = new Staff() { DealerID = northernBDealer.ID, FirstName = "Leland", LastName = "Kono", JobType = JobType.SalesRep };
-            Staff northernBDealerSalesStaff3 = new Staff() { DealerID = northernBDealer.ID, FirstName = "Freeman", LastName = "Bagnall", JobType = JobType.Accounting };
-            Staff northernBDealerSalesStaff4 = new Staff() { DealerID = northernBDealer.ID, FirstName = "Debbie", LastName = "Murton", JobType = JobType.Manager };
-
-            Staff southernADealerSalesStaff1 = new Staff() { DealerID = southernADealer.ID, FirstName = "Israel", LastName = "Janas", JobType = JobType.SalesRep };
-            Staff southernADealerSalesStaff2 = new Staff() { DealerID = southernADealer.ID, FirstName = "Karrie", LastName = "Mccorkle", JobType = JobType.SalesRep };
-            Staff southernADealerSalesStaff3 = new Staff() { DealerID = southernADealer.ID, FirstName = "Aliza", LastName = "Pickell", JobType = JobType.Accounting };
-            Staff southernADealerSalesStaff4 = new Staff() { DealerID = southernADealer.ID, FirstName = "Venita", LastName = "Sobczak", JobType = JobType.Manager };
-
-            Staff southernBDealerSalesStaff1 = new Staff() { DealerID = southernBDealer.ID, FirstName = "Kacy", LastName = "Nicastro", JobType = JobType.SalesRep };
-            Staff southernBDealerSalesStaff2 = new Staff() { DealerID = southernBDealer.ID, FirstName = "Adele", LastName = "Gessner", JobType = JobType.SalesRep };
-            Staff southernBDealerSalesStaff3 = new Staff() { DealerID = southernBDealer.ID, FirstName = "Tameka", LastName = "Pawlowicz", JobType = JobType.Accounting };
-            Staff southernBDealerSalesStaff4 = new Staff() { DealerID = southernBDealer.ID, FirstName = "Giuseppe", LastName = "Beckmann", JobType = JobType.Manager };
 
             #region Staff Members Handling
 
@@ -134,34 +154,6 @@ namespace CarDealershipTest.Migrations
                 );
 
             #endregion
-
-            //Creating the Sales. 2 sales for each Sales Staff member of the northern regions, 1 per Sales Staff member of the Southern A Region, 
-            //repeated for "DateTime.Today" and "DateTime.Today+3 days"
-            Sale sale1 = new Sale() { DealerID = northernADealer.ID, SaleDate = DateTime.Today, StaffID = northernADealerSalesStaff1.ID, VehicleID = vehicleA.ID};
-            Sale sale2 = new Sale() { DealerID = northernADealer.ID, SaleDate = DateTime.Today, StaffID = northernADealerSalesStaff1.ID, VehicleID = vehicleB.ID };
-            Sale sale3 = new Sale() { DealerID = northernADealer.ID, SaleDate = DateTime.Today, StaffID = northernADealerSalesStaff2.ID, VehicleID = vehicleA.ID };
-            Sale sale4 = new Sale() { DealerID = northernADealer.ID, SaleDate = DateTime.Today, StaffID = northernADealerSalesStaff2.ID, VehicleID = vehicleB.ID };
-
-            Sale sale5 = new Sale() { DealerID = northernADealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = northernADealerSalesStaff1.ID, VehicleID = vehicleA.ID };
-            Sale sale6 = new Sale() { DealerID = northernADealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = northernADealerSalesStaff1.ID, VehicleID = vehicleB.ID };
-            Sale sale7 = new Sale() { DealerID = northernADealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = northernADealerSalesStaff2.ID, VehicleID = vehicleA.ID };
-            Sale sale8 = new Sale() { DealerID = northernADealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = northernADealerSalesStaff2.ID, VehicleID = vehicleB.ID };
-
-            Sale sale9 = new Sale() { DealerID = northernBDealer.ID, SaleDate = DateTime.Today, StaffID = northernBDealerSalesStaff1.ID, VehicleID = vehicleA.ID };
-            Sale sale10 = new Sale() { DealerID = northernBDealer.ID, SaleDate = DateTime.Today, StaffID = northernBDealerSalesStaff1.ID, VehicleID = vehicleB.ID };
-            Sale sale11 = new Sale() { DealerID = northernBDealer.ID, SaleDate = DateTime.Today, StaffID = northernBDealerSalesStaff2.ID, VehicleID = vehicleA.ID };
-            Sale sale12 = new Sale() { DealerID = northernBDealer.ID, SaleDate = DateTime.Today, StaffID = northernBDealerSalesStaff2.ID, VehicleID = vehicleB.ID };
-
-            Sale sale13 = new Sale() { DealerID = northernBDealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = northernBDealerSalesStaff1.ID, VehicleID = vehicleA.ID };
-            Sale sale14 = new Sale() { DealerID = northernBDealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = northernBDealerSalesStaff1.ID, VehicleID = vehicleB.ID };
-            Sale sale15 = new Sale() { DealerID = northernBDealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = northernBDealerSalesStaff2.ID, VehicleID = vehicleA.ID };
-            Sale sale16 = new Sale() { DealerID = northernBDealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = northernBDealerSalesStaff2.ID, VehicleID = vehicleB.ID };
-
-            Sale sale17 = new Sale() { DealerID = southernADealer.ID, SaleDate = DateTime.Today, StaffID = southernADealerSalesStaff1.ID, VehicleID = vehicleC.ID };
-            Sale sale18 = new Sale() { DealerID = southernADealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = southernADealerSalesStaff1.ID, VehicleID = vehicleD.ID };
-
-            Sale sale19 = new Sale() { DealerID = southernADealer.ID, SaleDate = DateTime.Today, StaffID = southernADealerSalesStaff2.ID, VehicleID = vehicleC.ID };
-            Sale sale20 = new Sale() { DealerID = southernADealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = southernADealerSalesStaff2.ID, VehicleID = vehicleD.ID };
 
             #region Sales Handling
 
