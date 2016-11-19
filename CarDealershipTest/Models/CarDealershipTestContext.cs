@@ -6,7 +6,7 @@ using System.Web;
 
 namespace CarDealershipTest.Models
 {
-    public class SalesContext : DbContext
+    public class CarDealershipTestContext : DbContext
     {
         // You can add custom code to this file. Changes will not be overwritten.
         // 
@@ -15,12 +15,20 @@ namespace CarDealershipTest.Models
         // For more information refer to the documentation:
         // http://msdn.microsoft.com/en-us/data/jj591621.aspx
     
-        public SalesContext() : base("name=SalesContext")
+        public CarDealershipTestContext() : base("name=CarDealershipTestContext")
         {
         }
+
+        public System.Data.Entity.DbSet<CarDealershipTest.Models.Area> Areas { get; set; }
+
+        public System.Data.Entity.DbSet<CarDealershipTest.Models.Dealer> Dealers { get; set; }
+
+        public System.Data.Entity.DbSet<CarDealershipTest.Models.Region> Regions { get; set; }
 
         public System.Data.Entity.DbSet<CarDealershipTest.Models.Sale> Sales { get; set; }
 
         public System.Data.Entity.DbSet<CarDealershipTest.Models.Vehicle> Vehicles { get; set; }
+
+        public System.Data.Entity.DbSet<CarDealershipTest.Models.Staff> Staffs { get; set; }
     }
 }

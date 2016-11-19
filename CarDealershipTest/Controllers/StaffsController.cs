@@ -15,7 +15,7 @@ namespace CarDealershipTest.Controllers
 {
     public class StaffsController : ApiController
     {
-        private StaffContext db = new StaffContext();
+        private CarDealershipTestContext db = new CarDealershipTestContext();
 
         // GET: api/Staffs
         public IQueryable<Staff> GetStaffs()

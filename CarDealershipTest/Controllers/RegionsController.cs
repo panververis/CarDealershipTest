@@ -15,7 +15,7 @@ namespace CarDealershipTest.Controllers
 {
     public class RegionsController : ApiController
     {
-        private RegionsContext db = new RegionsContext();
+        private CarDealershipTestContext db = new CarDealershipTestContext();
 
         // GET: api/Regions
         public IQueryable<Region> GetRegions()
