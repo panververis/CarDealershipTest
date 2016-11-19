@@ -21,11 +21,35 @@ namespace CarDealershipTest.Migrations
             Area northArea = new Area() { Name = "North Area" };
             Area southArea = new Area() { Name = "South Area" };
 
+            #region  Areas Handling
+
+            //upserting the initial Areas
+            context.Areas.AddOrUpdate(
+                    x => x.ID,
+                    northArea,
+                    southArea
+                );
+
+            #endregion
+
             //Creating the initial Regions. There will be four initial Regions
             Region northernRegionA = new Region() { Name = "Northern Region A" };
             Region northernRegionB = new Region() { Name = "Northern Region B" };
             Region southernRegionA = new Region() { Name = "Southern Region A" };
             Region southernRegionB = new Region() { Name = "Southern Region B" };
+
+            #region Regions handling
+
+            //upserting the initial Regions
+            context.Regions.AddOrUpdate(
+                    x => x.ID,
+                    northernRegionA,
+                    northernRegionB,
+                    southernRegionA,
+                    southernRegionB
+                );
+
+            #endregion
 
             //Creating the initial Vehicles. There will be four initial Vehicles
             Vehicle vehicleA = new Vehicle() { Name = "Vehicle A" };
@@ -33,11 +57,37 @@ namespace CarDealershipTest.Migrations
             Vehicle vehicleC = new Vehicle() { Name = "Vehicle C" };
             Vehicle vehicleD = new Vehicle() { Name = "Vehicle D" };
 
+            #region  Vehicles handling
+
+            //upserting the initial Vehicles
+            context.Vehicles.AddOrUpdate(
+                    x => x.ID,
+                    vehicleA,
+                    vehicleB,
+                    vehicleC,
+                    vehicleD
+                );
+
+            #endregion
+
             //Creating the initial Dealers. There will be four initial Dealers, one per Region
             Dealer northernADealer = new Dealer() { Name = "Northern Dealer A", RegionID = northernRegionA.ID };
             Dealer northernBDealer = new Dealer() { Name = "Northern Dealer B", RegionID = northernRegionB.ID };
             Dealer southernADealer = new Dealer() { Name = "Southern Dealer A", RegionID = southernRegionA.ID };
             Dealer southernBDealer = new Dealer() { Name = "Southern Dealer B", RegionID = southernRegionB.ID };
+
+            #region  Dealers handling
+
+            //upserting the initial Dealers
+            context.Dealers.AddOrUpdate(
+                    x => x.ID,
+                    northernADealer,
+                    northernBDealer,
+                    southernADealer,
+                    southernBDealer
+                );
+
+            #endregion
 
             //Creating the initial Staff Members. There will be sixteen Staff members, 2 salesman + 1 accounting + 1 manager per Dealer
             Staff northernADealerSalesStaff1 = new Staff() { DealerID = northernADealer.ID, FirstName = "Joycelyn", LastName = "Hartsock", JobType = JobType.SalesRep};
@@ -59,6 +109,31 @@ namespace CarDealershipTest.Migrations
             Staff southernBDealerSalesStaff2 = new Staff() { DealerID = southernBDealer.ID, FirstName = "Adele", LastName = "Gessner", JobType = JobType.SalesRep };
             Staff southernBDealerSalesStaff3 = new Staff() { DealerID = southernBDealer.ID, FirstName = "Tameka", LastName = "Pawlowicz", JobType = JobType.Accounting };
             Staff southernBDealerSalesStaff4 = new Staff() { DealerID = southernBDealer.ID, FirstName = "Giuseppe", LastName = "Beckmann", JobType = JobType.Manager };
+
+            #region Staff Members Handling
+
+            //upserting the initial Staff Members
+            context.Staffs.AddOrUpdate(
+                    x => x.ID,
+                    northernADealerSalesStaff1,
+                    northernADealerSalesStaff2,
+                    northernADealerSalesStaff3,
+                    northernADealerSalesStaff4,
+                    northernBDealerSalesStaff1,
+                    northernBDealerSalesStaff2,
+                    northernBDealerSalesStaff3,
+                    northernBDealerSalesStaff4,
+                    southernADealerSalesStaff1,
+                    southernADealerSalesStaff2,
+                    southernADealerSalesStaff3,
+                    southernADealerSalesStaff4,
+                    southernBDealerSalesStaff1,
+                    southernBDealerSalesStaff2,
+                    southernBDealerSalesStaff3,
+                    southernBDealerSalesStaff4
+                );
+
+            #endregion
 
             //Creating the Sales. 2 sales for each Sales Staff member of the northern regions, 1 per Sales Staff member of the Southern A Region, 
             //repeated for "DateTime.Today" and "DateTime.Today+3 days"
@@ -87,81 +162,6 @@ namespace CarDealershipTest.Migrations
 
             Sale sale19 = new Sale() { DealerID = southernADealer.ID, SaleDate = DateTime.Today, StaffID = southernADealerSalesStaff2.ID, VehicleID = vehicleC.ID };
             Sale sale20 = new Sale() { DealerID = southernADealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = southernADealerSalesStaff2.ID, VehicleID = vehicleD.ID };
-
-            #region  Areas Handling
-
-            //upserting the initial Areas
-            context.Areas.AddOrUpdate(
-                    x => x.ID,
-                    northArea,
-                    southArea
-                );
-
-            #endregion
-
-            #region Regions handling
-
-            //upserting the initial Regions
-            context.Regions.AddOrUpdate(
-                    x => x.ID,
-                    northernRegionA,
-                    northernRegionB,
-                    southernRegionA,
-                    southernRegionB
-                );
-
-            #endregion
-
-            #region  Vehicles handling
-
-            //upserting the initial Vehicles
-            context.Vehicles.AddOrUpdate(
-                    x => x.ID,
-                    vehicleA,
-                    vehicleB,
-                    vehicleC,
-                    vehicleD
-                );
-
-            #endregion
-
-            #region  Dealers handling
-
-            //upserting the initial Dealers
-            context.Dealers.AddOrUpdate(
-                    x => x.ID,
-                    northernADealer,
-                    northernBDealer,
-                    southernADealer,
-                    southernBDealer
-                );
-
-            #endregion
-
-            #region Staff Members Handling
-
-            //upserting the initial Staff Members
-            context.Staffs.AddOrUpdate(
-                    x => x.ID,
-                    northernADealerSalesStaff1,
-                    northernADealerSalesStaff2,
-                    northernADealerSalesStaff3,
-                    northernADealerSalesStaff4,
-                    northernBDealerSalesStaff1,
-                    northernBDealerSalesStaff2,
-                    northernBDealerSalesStaff3,
-                    northernBDealerSalesStaff4,
-                    southernADealerSalesStaff1,
-                    southernADealerSalesStaff2,
-                    southernADealerSalesStaff3,
-                    southernADealerSalesStaff4,
-                    southernBDealerSalesStaff1,
-                    southernBDealerSalesStaff2,
-                    southernBDealerSalesStaff3,
-                    southernBDealerSalesStaff4
-                );
-
-            #endregion
 
             #region Sales Handling
 
