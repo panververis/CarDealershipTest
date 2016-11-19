@@ -179,6 +179,10 @@
     <Compile Include="Migrations\201611191950428_InitialMigration.Designer.cs">
       <DependentUpon>201611191950428_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611192042435_SeedingMigration.cs" />
+    <Compile Include="Migrations\201611192042435_SeedingMigration.Designer.cs">
+      <DependentUpon>201611192042435_SeedingMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Area.cs" />
     <Compile Include="Models\CarDealershipTestContext.cs" />
@@ -242,6 +246,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201611191950428_InitialMigration.resx">
       <DependentUpon>201611191950428_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611192042435_SeedingMigration.resx">
+      <DependentUpon>201611192042435_SeedingMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
