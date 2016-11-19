@@ -19,7 +19,7 @@ namespace CarDealershipTest.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public JobType JobType { get; set; }
-        public string DealerID { get; set; }
+        public int DealerID { get; set; }
         public virtual Dealer Dealer { get; set; }
     }
 }
