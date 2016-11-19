@@ -59,26 +59,26 @@ namespace CarDealershipTest.Migrations
 
             //Creating the Sales. 2 sales for each Sales Staff member of the northern regions, 1 per Sales Staff member of the Southern A Region, 
             //repeated for "DateTime.Today" and "DateTime.Today+3 days"
-            Sale sale1 = new Sale() { DealerID = northernADealer.ID, SaleDate = DateTime.Today, StaffID = northernADealerSalesStaff1.ID, VehicleID = vehicleA.ID, ID = 1 };
-            Sale sale2 = new Sale() { DealerID = northernADealer.ID, SaleDate = DateTime.Today, StaffID = northernADealerSalesStaff1.ID, VehicleID = vehicleB.ID, ID = 2 };
-            Sale sale3 = new Sale() { DealerID = northernADealer.ID, SaleDate = DateTime.Today, StaffID = northernADealerSalesStaff2.ID, VehicleID = vehicleA.ID, ID = 3 };
-            Sale sale4 = new Sale() { DealerID = northernADealer.ID, SaleDate = DateTime.Today, StaffID = northernADealerSalesStaff2.ID, VehicleID = vehicleB.ID, ID = 4 };
-            Sale sale5 = new Sale() { DealerID = northernADealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = northernADealerSalesStaff1.ID, VehicleID = vehicleA.ID, ID = 5 };
-            Sale sale6 = new Sale() { DealerID = northernADealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = northernADealerSalesStaff1.ID, VehicleID = vehicleB.ID, ID = 6 };
-            Sale sale7 = new Sale() { DealerID = northernADealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = northernADealerSalesStaff2.ID, VehicleID = vehicleA.ID, ID = 7 };
-            Sale sale8 = new Sale() { DealerID = northernADealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = northernADealerSalesStaff2.ID, VehicleID = vehicleB.ID, ID = 8 };
-            Sale sale9 = new Sale() { DealerID = northernBDealer.ID, SaleDate = DateTime.Today, StaffID = northernBDealerSalesStaff1.ID, VehicleID = vehicleA.ID, ID = 9 };
-            Sale sale10 = new Sale() { DealerID = northernBDealer.ID, SaleDate = DateTime.Today, StaffID = northernBDealerSalesStaff1.ID, VehicleID = vehicleB.ID, ID = 10 };
-            Sale sale11 = new Sale() { DealerID = northernBDealer.ID, SaleDate = DateTime.Today, StaffID = northernBDealerSalesStaff2.ID, VehicleID = vehicleA.ID, ID = 11 };
-            Sale sale12 = new Sale() { DealerID = northernBDealer.ID, SaleDate = DateTime.Today, StaffID = northernBDealerSalesStaff2.ID, VehicleID = vehicleB.ID, ID = 12 };
-            Sale sale13 = new Sale() { DealerID = northernBDealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = northernBDealerSalesStaff1.ID, VehicleID = vehicleA.ID, ID = 13 };
-            Sale sale14 = new Sale() { DealerID = northernBDealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = northernBDealerSalesStaff1.ID, VehicleID = vehicleB.ID, ID = 14 };
-            Sale sale15 = new Sale() { DealerID = northernBDealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = northernBDealerSalesStaff2.ID, VehicleID = vehicleA.ID, ID = 15 };
-            Sale sale16 = new Sale() { DealerID = northernBDealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = northernBDealerSalesStaff2.ID, VehicleID = vehicleB.ID, ID = 16 };
-            Sale sale17 = new Sale() { DealerID = southernADealer.ID, SaleDate = DateTime.Today, StaffID = southernADealerSalesStaff1.ID, VehicleID = vehicleC.ID, ID = 17 };
-            Sale sale18 = new Sale() { DealerID = southernADealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = southernADealerSalesStaff1.ID, VehicleID = vehicleD.ID, ID = 18 };
-            Sale sale19 = new Sale() { DealerID = southernADealer.ID, SaleDate = DateTime.Today, StaffID = southernADealerSalesStaff2.ID, VehicleID = vehicleC.ID, ID = 19 };
-            Sale sale20 = new Sale() { DealerID = southernADealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = southernADealerSalesStaff2.ID, VehicleID = vehicleD.ID, ID = 20 };
+            Sale sale1 = new Sale() { DealerID = northernADealer.ID, SaleDate = DateTime.Today, StaffID = northernADealerSalesStaff1.ID, VehicleID = vehicleA.ID, ID = 1, SaleValue = 100};
+            Sale sale2 = new Sale() { DealerID = northernADealer.ID, SaleDate = DateTime.Today, StaffID = northernADealerSalesStaff1.ID, VehicleID = vehicleB.ID, ID = 2, SaleValue = 150 };
+            Sale sale3 = new Sale() { DealerID = northernADealer.ID, SaleDate = DateTime.Today, StaffID = northernADealerSalesStaff2.ID, VehicleID = vehicleA.ID, ID = 3, SaleValue = 200 };
+            Sale sale4 = new Sale() { DealerID = northernADealer.ID, SaleDate = DateTime.Today, StaffID = northernADealerSalesStaff2.ID, VehicleID = vehicleB.ID, ID = 4, SaleValue = 180 };
+            Sale sale5 = new Sale() { DealerID = northernADealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = northernADealerSalesStaff1.ID, VehicleID = vehicleA.ID, ID = 5, SaleValue = 140 };
+            Sale sale6 = new Sale() { DealerID = northernADealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = northernADealerSalesStaff1.ID, VehicleID = vehicleB.ID, ID = 6, SaleValue = 190 };
+            Sale sale7 = new Sale() { DealerID = northernADealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = northernADealerSalesStaff2.ID, VehicleID = vehicleA.ID, ID = 7, SaleValue = 170 };
+            Sale sale8 = new Sale() { DealerID = northernADealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = northernADealerSalesStaff2.ID, VehicleID = vehicleB.ID, ID = 8, SaleValue = 140 };
+            Sale sale9 = new Sale() { DealerID = northernBDealer.ID, SaleDate = DateTime.Today, StaffID = northernBDealerSalesStaff1.ID, VehicleID = vehicleA.ID, ID = 9, SaleValue = 156 };
+            Sale sale10 = new Sale() { DealerID = northernBDealer.ID, SaleDate = DateTime.Today, StaffID = northernBDealerSalesStaff1.ID, VehicleID = vehicleB.ID, ID = 10, SaleValue = 180 };
+            Sale sale11 = new Sale() { DealerID = northernBDealer.ID, SaleDate = DateTime.Today, StaffID = northernBDealerSalesStaff2.ID, VehicleID = vehicleA.ID, ID = 11, SaleValue = 190 };
+            Sale sale12 = new Sale() { DealerID = northernBDealer.ID, SaleDate = DateTime.Today, StaffID = northernBDealerSalesStaff2.ID, VehicleID = vehicleB.ID, ID = 12, SaleValue = 140 };
+            Sale sale13 = new Sale() { DealerID = northernBDealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = northernBDealerSalesStaff1.ID, VehicleID = vehicleA.ID, ID = 13, SaleValue = 130 };
+            Sale sale14 = new Sale() { DealerID = northernBDealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = northernBDealerSalesStaff1.ID, VehicleID = vehicleB.ID, ID = 14, SaleValue = 120 };
+            Sale sale15 = new Sale() { DealerID = northernBDealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = northernBDealerSalesStaff2.ID, VehicleID = vehicleA.ID, ID = 15, SaleValue = 190 };
+            Sale sale16 = new Sale() { DealerID = northernBDealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = northernBDealerSalesStaff2.ID, VehicleID = vehicleB.ID, ID = 16, SaleValue = 160 };
+            Sale sale17 = new Sale() { DealerID = southernADealer.ID, SaleDate = DateTime.Today, StaffID = southernADealerSalesStaff1.ID, VehicleID = vehicleC.ID, ID = 17, SaleValue = 300 };
+            Sale sale18 = new Sale() { DealerID = southernADealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = southernADealerSalesStaff1.ID, VehicleID = vehicleD.ID, ID = 18, SaleValue = 310 };
+            Sale sale19 = new Sale() { DealerID = southernADealer.ID, SaleDate = DateTime.Today, StaffID = southernADealerSalesStaff2.ID, VehicleID = vehicleC.ID, ID = 19, SaleValue = 340 };
+            Sale sale20 = new Sale() { DealerID = southernADealer.ID, SaleDate = DateTime.Today.AddDays(3), StaffID = southernADealerSalesStaff2.ID, VehicleID = vehicleD.ID, ID = 20, SaleValue = 380 };
 
             #region  Areas Handling
 
