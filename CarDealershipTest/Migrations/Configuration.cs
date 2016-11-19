@@ -5,14 +5,14 @@ namespace CarDealershipTest.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<CarDealershipTest.Models.AreaContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<CarDealershipTest.Models.CarDealershipTestContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(CarDealershipTest.Models.AreaContext context)
+        protected override void Seed(CarDealershipTest.Models.CarDealershipTestContext context)
         {
             //  This method will be called after migrating to the latest version.
 
