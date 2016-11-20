@@ -50,10 +50,12 @@
                 <div id="tblSales">
                     <table>
                         <tr>
+                            <th>Sale Date</th>
                             <th>Sale Value</th>
                         </tr>
                         <tbody data-ng-repeat="sale in sales">
                         <tr>
+                            <td>{{sale.SaleDate}}</td>
                             <td>{{sale.SaleValue}}</td>
                         </tr>
                         </tbody>
