@@ -1,33 +1,60 @@
 ﻿<script src="~/Scripts/angular.min.js"></script>
-<div class="row">
-    <div class="col-md-4">
-        hi
-    </div>
-    <div class="col-md-4">
-        hi
-    </div>
-    <div class="col-md-4">
-        hi
-    </div>
-    <div class="col-md-6">
-        hi
-    </div>
-    <div class="col-md-6">
-        hi
-    </div>
-    <div class="col-md-6">
-        hi
-    </div>
-    <div class="col-md-6">
-        hi
-    </div>
-</div>
+
 <div ng-app = "app">
-    <div ng-controller = "main as vm">
-        <input type="text" ng-model="vm.food" placeholder="Enter food" />
-
-        <p>Sriracha sauce is great with {{vm.food}}!</p>
-
+    <div ng-controller="main as vm">
+        <div class="row">
+            <div class="col-md-3">
+                <label for="startDateInput">Date Range</label>
+            </div>
+            <div class="col-md-3">
+                <label for="regionTextInput">Region</label>
+            </div>
+            <div class="col-md-3">
+                <label for="areaTextInput">Area</label>
+            </div>
+            <div class="col-md-3">
+                <label for="staffTextInput">Staff Name</label>
+            </div>
+         </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="col-md-6">
+                    <input type="date" id="startDateInput" name="startDateInput" ng-model="vm.startDate"
+                           placeholder="yyyy-MM-dd" min="2016-01-01" max="2016-12-31"/>
+                </div>
+                <div class="col-md-6">
+                    <input type="date" id="endDateInput" name="endDateInput" ng-model="vm.endDate"
+                           placeholder="yyyy-MM-dd" min="2016-01-01" max="2016-12-31"/>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <input type="text" id="regionTextInput" name="regionTextInput" ng-model="vm.region"
+                       placeholder="Region"/>
+            </div>
+            <div class="col-md-3">
+                <input type="text" id="areaTextInput" name="areaTextInput" ng-model="vm.area"
+                       placeholder="Area"/>
+            </div>
+            <div class="col-md-3">
+                <input type="text" id="staffTextInput" name="staffTextInput" ng-model="vm.staff"
+                       placeholder="Staff Name"/>
+            </div>
+        </div>
+        @*<div class="row">
+            <div class="col-md-3">
+                <p>Start Date: {{vm.startDate}}</p>
+                <p>End Date: {{vm.endDate}}</p>
+            </div>
+            <div class="col-md-3">
+                <p>Region: {{vm.region}}</p>
+            </div>
+            <div class="col-md-3">
+                <p>Area: {{vm.area}}</p>
+            </div>
+            <div class="col-md-3">
+                <p>Staff Name: {{vm.staff}}</p>
+            </div>
+        </div>*@
         <script src="~/Scripts/app/app.module.js"></script>
         <script src="~/Scripts/app/main.js"></script>
     </div>
