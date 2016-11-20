@@ -1,6 +1,6 @@
 ﻿<script src="~/Scripts/angular.min.js"></script>
 
-<div ng-app = "app">
+<div data-ng-app = "app">
     <div ng-controller="main">
         <div class="row">
             <div class="col-md-3">
@@ -44,6 +44,18 @@
             <div class="col-md-1">
                 <button ng-click="search()">OK</button>
             </div>
+        </div>
+        <div id="tblSales">
+            <table>
+                <tr>
+                    <th>Sale Value</th>
+                </tr>
+                <tbody data-ng-repeat="sale in sales">
+                    <tr>
+                        <td>{{sale.SaleValue}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         @*<div class="row">
             <div class="col-md-3">

@@ -15,8 +15,7 @@
                 function (d) {
                     var dData = d.data;
                     $scope.sales = dData;
-                }, function (error) {
-                    $log.error('Oops! Something went wrong while fetching the data.');
+                }, function () {
                 }
             );
         };
