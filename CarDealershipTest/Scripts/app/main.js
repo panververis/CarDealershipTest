@@ -14,7 +14,7 @@
             servCall.then(
                 function (d) {
                     var dData = d.data;
-                    $scope.getSales = dData;
+                    $scope.sales = dData;
                 }, function (error) {
                     $log.error('Oops! Something went wrong while fetching the data.');
                 }
