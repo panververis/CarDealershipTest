@@ -8,9 +8,8 @@
     main.$inject = ['$scope']; 
 
     function main($scope) {
-        $scope.food = 'pizza';
         $scope.Search = function() {
-            $scope.food = 'this is an invoked food';
+            
         }
         //activate();
 
