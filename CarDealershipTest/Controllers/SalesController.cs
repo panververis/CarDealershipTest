@@ -18,9 +18,10 @@ namespace CarDealershipTest.Controllers
         private CarDealershipTestContext db = new CarDealershipTestContext();
 
         // GET: api/Sales
-        public IQueryable<Sale> GetSales()
+        public IEnumerable<Sale> GetSales()
         {
-            return db.Sales;
+            IEnumerable<Sale> sales = db.Sales.AsEnumerable();
+            return sales;
         }
 
         // GET: api/Sales/5
