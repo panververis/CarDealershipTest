@@ -10,8 +10,15 @@
         })
     .controller('main', ['SalesService', '$scope', function (salesService, $scope) {
         $scope.search = function () {
-            var a = salesService.getSales();
-            return a;
+            var servCall = salesService.getSales();
+            servCall.then(
+                function (d) {
+                    var dData = d.data;
+                    $scope.getSales = dData;
+                }, function (error) {
+                    $log.error('Oops! Something went wrong while fetching the data.');
+                }
+            );
         };
 
     }]);
