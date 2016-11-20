@@ -1,4 +1,5 @@
-﻿<div class="row">
+﻿<script src="~/Scripts/angular.min.js"></script>
+<div class="row">
     <div class="col-md-4">
         hi
     </div>
@@ -19,5 +20,15 @@
     </div>
     <div class="col-md-6">
         hi
+    </div>
+</div>
+<div ng-app = "app">
+    <div ng-controller = "main as vm">
+        <input type="text" ng-model="vm.food" placeholder="Enter food" />
+
+        <p>Sriracha sauce is great with {{vm.food}}!</p>
+
+        <script src="~/Scripts/app/app.module.js"></script>
+        <script src="~/Scripts/app/main.js"></script>
     </div>
 </div>
