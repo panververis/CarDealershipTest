@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using CarDealershipTest.Models;
+using WebGrease.Css.Extensions;
 
 namespace CarDealershipTest.Controllers
 {
@@ -20,11 +21,36 @@ namespace CarDealershipTest.Controllers
         // GET: api/Sales
         public IEnumerable<Sale> GetSales()
         {
-            List<Sale> sales = db.Sales.ToList();
-            foreach (Sale sale in sales)
+            //fetching the necessary data
+            var salesInfos = (
+                            from salesTable in db.Sales
+                            join dealersTable in db.Dealers on salesTable.DealerID equals dealersTable.ID
+                            join staffTable in db.Staffs on salesTable.StaffID equals staffTable.ID
+                            join vehiclesTable in db.Vehicles on salesTable.VehicleID equals vehiclesTable.ID
+                            select new
+                            {
+                                DealerName = dealersTable.Name,
+                                StaffFirstName = staffTable.FirstName,
+                                StaffLastName = staffTable.LastName,
+                                VehicleName = vehiclesTable.Name,
+                                SaleInfoDate = salesTable.SaleDate,
+                                SaleInfoValue = salesTable.SaleValue
+                            }
+                        ).AsEnumerable();
+
+            //initializing the to-be-returned List of Sales
+            List<Sale> sales = new List<Sale>();
+
+            //populating the List of Sales
+            salesInfos.ForEach(x => sales.Add(new Sale()
             {
-                sale.AssignFormattedDate();
-            }
+                DealerName = x.DealerName,
+                StaffName = $"{x.StaffLastName} {x.StaffFirstName}",
+                VehicleName = x.VehicleName,
+                FormattedSaleDate = x.SaleInfoDate.ToShortDateString(),
+                SaleValue = x.SaleInfoValue
+            }));
+
             return sales;
         }
 

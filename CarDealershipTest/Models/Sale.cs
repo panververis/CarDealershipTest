@@ -15,7 +15,13 @@ namespace CarDealershipTest.Models
 
         public int DealerID { get; set; }
 
+        [NotMapped]
+        public string DealerName { get; set; }
+
         public int StaffID { get; set; }
+
+        [NotMapped]
+        public string StaffName { get; set; }
 
         public DateTime SaleDate { get; set; }
 
@@ -25,6 +31,9 @@ namespace CarDealershipTest.Models
         public int VehicleID { get; set; }
 
         public virtual Vehicle Vehicle { get; set; }
+
+        [NotMapped]
+        public string VehicleName { get; set; }
 
         public decimal SaleValue { get; set; }
 
