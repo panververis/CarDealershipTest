@@ -18,7 +18,7 @@
         //        }
         //    );
         //};
-
+        searchFunc();
         $scope.search = searchFunc;
 
         function searchFunc() {
