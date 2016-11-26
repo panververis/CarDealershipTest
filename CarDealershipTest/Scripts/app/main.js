@@ -9,15 +9,27 @@
             }
         })
     .controller('main', ['SalesService', '$scope', function (salesService, $scope) {
-        $scope.search = function () {
+        //$scope.search = function () {
+        //    var salesServCall = salesService.getSales();
+        //    salesServCall.then(
+        //        function (d) {
+        //            var dData = d.data;
+        //            $scope.sales = dData;
+        //        }
+        //    );
+        //};
+
+        $scope.search = searchFunc;
+
+        function searchFunc() {
             var salesServCall = salesService.getSales();
-            salesServCall.then(
-                function (d) {
-                    var dData = d.data;
-                    $scope.sales = dData;
-                }
-            );
-        };
+                salesServCall.then(
+                    function (d) {
+                        var dData = d.data;
+                        $scope.sales = dData;
+                    }
+                );
+        }
 
     }]);
 })();
