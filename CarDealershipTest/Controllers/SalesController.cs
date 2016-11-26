@@ -58,27 +58,30 @@ namespace CarDealershipTest.Controllers
                 filterObject = new JavaScriptSerializer().Deserialize<Filter>(filter);
             }
 
-            ////applying the Filter Values to the Linq expression
-            //if (DateFrom.HasValue)
-            //{
-            //    salesInfos = salesInfos.Where(x => x.SaleInfoDate >= DateFrom.Value);
-            //}
-            //if (DateTo.HasValue)
-            //{
-            //    salesInfos = salesInfos.Where(x => x.SaleInfoDate <= DateTo.Value);
-            //}
-            //if (!String.IsNullOrEmpty(Region))
-            //{
-            //    salesInfos = salesInfos.Where(x => x.RegionName.Contains(Region));
-            //}
-            //if (!String.IsNullOrEmpty(Area))
-            //{
-            //    salesInfos = salesInfos.Where(x => x.AreaName.Contains(Area));
-            //}
-            //if (!String.IsNullOrEmpty(Staff))
-            //{
-            //    salesInfos = salesInfos.Where(x => x.StaffFirstName.Contains(Staff) || x.StaffLastName.Contains(Staff));
-            //}
+            //applying the Filter Values to the Linq expression
+            if (filterObject != null)
+            {
+                //if (filterObject.DateFrom.HasValue)
+                //{
+                //    salesInfos = salesInfos.Where(x => x.SaleInfoDate >= DateFrom.Value);
+                //}
+                //if (filterObject.DateTo.HasValue)
+                //{
+                //    salesInfos = salesInfos.Where(x => x.SaleInfoDate <= DateTo.Value);
+                //}
+                if (!String.IsNullOrEmpty(filterObject.Region))
+                {
+                    salesInfos = salesInfos.Where(x => x.RegionName.Contains(filterObject.Region));
+                }
+                if (!String.IsNullOrEmpty(filterObject.Area))
+                {
+                    salesInfos = salesInfos.Where(x => x.AreaName.Contains(filterObject.Area));
+                }
+                if (!String.IsNullOrEmpty(filterObject.Staff))
+                {
+                    salesInfos = salesInfos.Where(x => x.StaffFirstName.Contains(filterObject.Staff) || x.StaffLastName.Contains(filterObject.Staff));
+                }
+            }
 
             salesInfos = salesInfos.OrderBy(x => x.DealerName).ThenBy(y => y.SaleInfoDate);
 
