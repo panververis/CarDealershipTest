@@ -23,20 +23,48 @@ namespace CarDealershipTest.Controllers
         {
             //fetching the necessary data
             var salesInfos = (
-                            from salesTable in _db.Sales
-                            join dealersTable in _db.Dealers on salesTable.DealerID equals dealersTable.ID
-                            join staffTable in _db.Staffs on salesTable.StaffID equals staffTable.ID
-                            join vehiclesTable in _db.Vehicles on salesTable.VehicleID equals vehiclesTable.ID
-                            select new
-                            {
-                                DealerName = dealersTable.Name,
-                                StaffFirstName = staffTable.FirstName,
-                                StaffLastName = staffTable.LastName,
-                                VehicleName = vehiclesTable.Name,
-                                SaleInfoDate = salesTable.SaleDate,
-                                SaleInfoValue = salesTable.SaleValue
-                            }
-                        ).OrderBy(x => x.DealerName).ThenBy(y => y.SaleInfoDate).AsEnumerable();
+                from salesTable in _db.Sales
+                join dealersTable in _db.Dealers on salesTable.DealerID equals dealersTable.ID
+                join staffTable in _db.Staffs on salesTable.StaffID equals staffTable.ID
+                join vehiclesTable in _db.Vehicles on salesTable.VehicleID equals vehiclesTable.ID
+                join regionsTable in _db.Regions on dealersTable.RegionID equals regionsTable.ID
+                join areasTable in _db.Areas on regionsTable.AreaID equals areasTable.ID
+                select new
+                {
+                    DealerName = dealersTable.Name,
+                    StaffFirstName = staffTable.FirstName,
+                    StaffLastName = staffTable.LastName,
+                    VehicleName = vehiclesTable.Name,
+                    SaleInfoDate = salesTable.SaleDate,
+                    SaleInfoValue = salesTable.SaleValue,
+                    RegionName = regionsTable.Name,
+                    AreaName = areasTable.Name
+                }
+            );
+
+            ////applying the Filter Values to the Linq expression
+            //if (DateFrom.HasValue)
+            //{
+            //    salesInfos = salesInfos.Where(x => x.SaleInfoDate >= DateFrom.Value);
+            //}
+            //if (DateTo.HasValue)
+            //{
+            //    salesInfos = salesInfos.Where(x => x.SaleInfoDate <= DateTo.Value);
+            //}
+            //if (!String.IsNullOrEmpty(Region))
+            //{
+            //    salesInfos = salesInfos.Where(x => x.RegionName.Contains(Region));
+            //}
+            //if (!String.IsNullOrEmpty(Area))
+            //{
+            //    salesInfos = salesInfos.Where(x => x.AreaName.Contains(Area));
+            //}
+            //if (!String.IsNullOrEmpty(Staff))
+            //{
+            //    salesInfos = salesInfos.Where(x => x.StaffFirstName.Contains(Staff) || x.StaffLastName.Contains(Staff));
+            //}
+
+            salesInfos = salesInfos.OrderBy(x => x.DealerName).ThenBy(y => y.SaleInfoDate);
 
             //initializing the to-be-returned List of Sales
             List<Sale> sales = new List<Sale>();
@@ -48,7 +76,9 @@ namespace CarDealershipTest.Controllers
                 StaffName = $"{x.StaffLastName} {x.StaffFirstName}",
                 VehicleName = x.VehicleName,
                 FormattedSaleDate = x.SaleInfoDate.ToShortDateString(),
-                SaleValue = x.SaleInfoValue
+                SaleValue = x.SaleInfoValue,
+                RegionName = x.RegionName,
+                AreaName = x.AreaName
             }));
 
             return sales;

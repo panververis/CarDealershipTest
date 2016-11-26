@@ -37,6 +37,12 @@ namespace CarDealershipTest.Models
 
         public decimal SaleValue { get; set; }
 
+        [NotMapped]
+        public string RegionName { get; set; }
+
+        [NotMapped]
+        public string AreaName { get; set; }
+
         #endregion
 
         #region Methods
