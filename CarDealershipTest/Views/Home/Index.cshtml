@@ -66,13 +66,19 @@
                 <div id="tblSales">
                     <table class ="SalesTable">
                         <tr>
-                            <th class ="SalesTh">Sale Date</th>
-                            <th class ="SalesTh">Sale Value</th>
+                            <th class="SalesTh">Dealer</th>
+                            <th class="SalesTh">Staff</th>
+                            <th class="SalesTh">Vehicle</th>
+                            <th class="SalesTh">Sale Date</th>
+                            <th class="SalesTh">Value</th>
                         </tr>
                         <tbody data-ng-repeat="sale in sales">
                         <tr>
-                            <td class ="SalesTd">{{sale.FormattedSaleDate}}</td>
-                            <td class ="SalesTd">{{sale.SaleValue}}</td>
+                            <td class="SalesTd">{{sale.DealerName}}</td>
+                            <td class="SalesTd">{{sale.StaffName}}</td>
+                            <td class="SalesTd">{{sale.VehicleName}}</td>
+                            <td class="SalesTd">{{sale.FormattedSaleDate}}</td>
+                            <td class="SalesTd">{{sale.SaleValue}}$</td>
                         </tr>
                         </tbody>
                     </table>

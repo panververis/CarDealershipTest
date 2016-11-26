@@ -117,7 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="sArea" xml:space="preserve">
+    <value>Area</value>
+  </data>
   <data name="sCarDealershipDashboard" xml:space="preserve">
     <value>Car Dealership Dashboard</value>
+  </data>
+  <data name="sdDateRange" xml:space="preserve">
+    <value>Date Range</value>
+  </data>
+  <data name="sDealer" xml:space="preserve">
+    <value>Dealer</value>
+  </data>
+  <data name="sRegion" xml:space="preserve">
+    <value>Region</value>
+  </data>
+  <data name="sSaleDate" xml:space="preserve">
+    <value>Sale Date</value>
+  </data>
+  <data name="sStaff" xml:space="preserve">
+    <value>Staff</value>
+  </data>
+  <data name="sStaffName" xml:space="preserve">
+    <value>Staff Name</value>
+  </data>
+  <data name="sValue" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="sVehicle" xml:space="preserve">
+    <value>Vehicle</value>
   </data>
 </root>

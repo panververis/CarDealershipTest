@@ -61,11 +61,92 @@ namespace CarDealershipTest.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Area.
+        /// </summary>
+        internal static string sArea {
+            get {
+                return ResourceManager.GetString("sArea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Car Dealership Dashboard.
         /// </summary>
         internal static string sCarDealershipDashboard {
             get {
                 return ResourceManager.GetString("sCarDealershipDashboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date Range.
+        /// </summary>
+        internal static string sdDateRange {
+            get {
+                return ResourceManager.GetString("sdDateRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dealer.
+        /// </summary>
+        internal static string sDealer {
+            get {
+                return ResourceManager.GetString("sDealer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Region.
+        /// </summary>
+        internal static string sRegion {
+            get {
+                return ResourceManager.GetString("sRegion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sale Date.
+        /// </summary>
+        internal static string sSaleDate {
+            get {
+                return ResourceManager.GetString("sSaleDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Staff.
+        /// </summary>
+        internal static string sStaff {
+            get {
+                return ResourceManager.GetString("sStaff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Staff Name.
+        /// </summary>
+        internal static string sStaffName {
+            get {
+                return ResourceManager.GetString("sStaffName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value.
+        /// </summary>
+        internal static string sValue {
+            get {
+                return ResourceManager.GetString("sValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vehicle.
+        /// </summary>
+        internal static string sVehicle {
+            get {
+                return ResourceManager.GetString("sVehicle", resourceCulture);
             }
         }
     }

@@ -16,17 +16,17 @@ namespace CarDealershipTest.Controllers
 {
     public class SalesController : ApiController
     {
-        private CarDealershipTestContext db = new CarDealershipTestContext();
+        private readonly CarDealershipTestContext _db = new CarDealershipTestContext();
 
         // GET: api/Sales
         public IEnumerable<Sale> GetSales()
         {
             //fetching the necessary data
             var salesInfos = (
-                            from salesTable in db.Sales
-                            join dealersTable in db.Dealers on salesTable.DealerID equals dealersTable.ID
-                            join staffTable in db.Staffs on salesTable.StaffID equals staffTable.ID
-                            join vehiclesTable in db.Vehicles on salesTable.VehicleID equals vehiclesTable.ID
+                            from salesTable in _db.Sales
+                            join dealersTable in _db.Dealers on salesTable.DealerID equals dealersTable.ID
+                            join staffTable in _db.Staffs on salesTable.StaffID equals staffTable.ID
+                            join vehiclesTable in _db.Vehicles on salesTable.VehicleID equals vehiclesTable.ID
                             select new
                             {
                                 DealerName = dealersTable.Name,
@@ -36,7 +36,7 @@ namespace CarDealershipTest.Controllers
                                 SaleInfoDate = salesTable.SaleDate,
                                 SaleInfoValue = salesTable.SaleValue
                             }
-                        ).AsEnumerable();
+                        ).OrderBy(x => x.DealerName).ThenBy(y => y.SaleInfoDate).AsEnumerable();
 
             //initializing the to-be-returned List of Sales
             List<Sale> sales = new List<Sale>();
@@ -58,7 +58,7 @@ namespace CarDealershipTest.Controllers
         [ResponseType(typeof(Sale))]
         public async Task<IHttpActionResult> GetSale(int id)
         {
-            Sale sale = await db.Sales.FindAsync(id);
+            Sale sale = await _db.Sales.FindAsync(id);
             if (sale == null)
             {
                 return NotFound();
@@ -81,11 +81,11 @@ namespace CarDealershipTest.Controllers
                 return BadRequest();
             }
 
-            db.Entry(sale).State = EntityState.Modified;
+            _db.Entry(sale).State = EntityState.Modified;
 
             try
             {
-                await db.SaveChangesAsync();
+                await _db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -111,8 +111,8 @@ namespace CarDealershipTest.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Sales.Add(sale);
-            await db.SaveChangesAsync();
+            _db.Sales.Add(sale);
+            await _db.SaveChangesAsync();
 
             return CreatedAtRoute("DefaultApi", new { id = sale.ID }, sale);
         }
@@ -121,14 +121,14 @@ namespace CarDealershipTest.Controllers
         [ResponseType(typeof(Sale))]
         public async Task<IHttpActionResult> DeleteSale(int id)
         {
-            Sale sale = await db.Sales.FindAsync(id);
+            Sale sale = await _db.Sales.FindAsync(id);
             if (sale == null)
             {
                 return NotFound();
             }
 
-            db.Sales.Remove(sale);
-            await db.SaveChangesAsync();
+            _db.Sales.Remove(sale);
+            await _db.SaveChangesAsync();
 
             return Ok(sale);
         }
@@ -137,14 +137,14 @@ namespace CarDealershipTest.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                _db.Dispose();
             }
             base.Dispose(disposing);
         }
 
         private bool SaleExists(int id)
         {
-            return db.Sales.Count(e => e.ID == id) > 0;
+            return _db.Sales.Count(e => e.ID == id) > 0;
         }
     }
 }
