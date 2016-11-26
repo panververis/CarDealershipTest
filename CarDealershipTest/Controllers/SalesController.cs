@@ -11,12 +11,22 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using CarDealershipTest.Models;
 using WebGrease.Css.Extensions;
+using System.Web.Script.Serialization;
 
 namespace CarDealershipTest.Controllers
 {
     public class SalesController : ApiController
     {
         private readonly CarDealershipTestContext _db = new CarDealershipTestContext();
+
+        public class Filter
+        {
+            public string DateFrom { get; set; }
+            public string DateTo { get; set; }
+            public string Region { get; set; }
+            public string Area { get; set; }
+            public string Staff { get; set; }
+        }
 
         // GET: api/Sales
         public IEnumerable<Sale> GetSales(string filter)
@@ -41,6 +51,12 @@ namespace CarDealershipTest.Controllers
                     AreaName = areasTable.Name
                 }
             );
+
+            Filter filterObject = null;
+            if (!String.IsNullOrEmpty(filter))
+            {
+                filterObject = new JavaScriptSerializer().Deserialize<Filter>(filter);
+            }
 
             ////applying the Filter Values to the Linq expression
             //if (DateFrom.HasValue)
