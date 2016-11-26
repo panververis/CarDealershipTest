@@ -19,7 +19,7 @@ namespace CarDealershipTest.Controllers
         private readonly CarDealershipTestContext _db = new CarDealershipTestContext();
 
         // GET: api/Sales
-        public IEnumerable<Sale> GetSales()
+        public IEnumerable<Sale> GetSales(string filter)
         {
             //fetching the necessary data
             var salesInfos = (
