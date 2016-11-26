@@ -1,5 +1,21 @@
 ﻿<script src="~/Scripts/angular.min.js"></script>
 
+<style>
+    .SalesTable, .SalesTd, .SalesTh {
+        border: 1px solid grey;
+        border-collapse: collapse;
+        padding: 5px;
+    }
+
+        .SalesTable tr:nth-child(odd) {
+            background-color: #f1f1f1;
+        }
+
+        .SalesTable tr:nth-child(even) {
+            background-color: #ffffff;
+        }
+</style>
+
 <div data-ng-app = "app">
     <div ng-controller="main">
         <div class="row">
@@ -48,15 +64,15 @@
         <div class="row">
             <div class="col-md-4">
                 <div id="tblSales">
-                    <table>
+                    <table class ="SalesTable">
                         <tr>
-                            <th>Sale Date</th>
-                            <th>Sale Value</th>
+                            <th class ="SalesTh">Sale Date</th>
+                            <th class ="SalesTh">Sale Value</th>
                         </tr>
                         <tbody data-ng-repeat="sale in sales">
                         <tr>
-                            <td>{{sale.SaleDate}}</td>
-                            <td>{{sale.SaleValue}}</td>
+                            <td class ="SalesTd">{{sale.FormattedSaleDate}}</td>
+                            <td class ="SalesTd">{{sale.SaleValue}}</td>
                         </tr>
                         </tbody>
                     </table>

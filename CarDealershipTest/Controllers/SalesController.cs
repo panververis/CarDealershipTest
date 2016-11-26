@@ -20,7 +20,11 @@ namespace CarDealershipTest.Controllers
         // GET: api/Sales
         public IEnumerable<Sale> GetSales()
         {
-            IEnumerable<Sale> sales = db.Sales.AsEnumerable();
+            List<Sale> sales = db.Sales.ToList();
+            foreach (Sale sale in sales)
+            {
+                sale.AssignFormattedDate();
+            }
             return sales;
         }
 

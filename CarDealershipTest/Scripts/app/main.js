@@ -5,17 +5,16 @@
         .module('app', [])
         .service('SalesService', function($http) {
             this.getSales = function() {
-                return $http.get("api/Sales");
+                return $http.get("/api/Sales");
             }
         })
     .controller('main', ['SalesService', '$scope', function (salesService, $scope) {
         $scope.search = function () {
-            var servCall = salesService.getSales();
-            servCall.then(
+            var salesServCall = salesService.getSales();
+            salesServCall.then(
                 function (d) {
                     var dData = d.data;
                     $scope.sales = dData;
-                }, function () {
                 }
             );
         };
