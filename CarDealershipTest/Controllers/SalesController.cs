@@ -61,14 +61,22 @@ namespace CarDealershipTest.Controllers
             //applying the Filter Values to the Linq expression
             if (filterObject != null)
             {
-                //if (filterObject.DateFrom.HasValue)
-                //{
-                //    salesInfos = salesInfos.Where(x => x.SaleInfoDate >= DateFrom.Value);
-                //}
-                //if (filterObject.DateTo.HasValue)
-                //{
-                //    salesInfos = salesInfos.Where(x => x.SaleInfoDate <= DateTo.Value);
-                //}
+                if (!String.IsNullOrEmpty(filterObject.DateFrom))
+                {
+                    DateTime dateFrom = Convert.ToDateTime(filterObject.DateFrom);
+                    if (dateFrom != DateTime.MinValue)
+                    {
+                        salesInfos = salesInfos.Where(x => x.SaleInfoDate >= dateFrom);
+                    }
+                }
+                if (!String.IsNullOrEmpty(filterObject.DateTo))
+                {
+                    DateTime dateFrom = Convert.ToDateTime(filterObject.DateFrom);
+                    if (dateFrom != DateTime.MinValue)
+                    {
+                        salesInfos = salesInfos.Where(x => x.SaleInfoDate >= dateFrom);
+                    }
+                }
                 if (!String.IsNullOrEmpty(filterObject.Region))
                 {
                     salesInfos = salesInfos.Where(x => x.RegionName.Contains(filterObject.Region));

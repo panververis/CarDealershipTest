@@ -5,12 +5,6 @@
         .module('app', [])
         .service('SalesService', function($http) {
             this.getSales = function (filterObject) {
-                //return $http.get("/api/Sales");
-                //return $http({
-                //    url: "/api/Sales",
-                //    method: "GET", 
-                //    params: { param1: angular.toJson(filterObject, false) }
-                //});
                 var filterStr = angular.toJson(filterObject);
                 return $http.get("/api/Sales" + "/?filter=" + filterStr);
             }
