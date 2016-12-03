@@ -71,10 +71,10 @@ namespace CarDealershipTest.Controllers
                 }
                 if (!String.IsNullOrEmpty(filterObject.DateTo))
                 {
-                    DateTime dateFrom = Convert.ToDateTime(filterObject.DateFrom);
-                    if (dateFrom != DateTime.MinValue)
+                    DateTime dateTo = Convert.ToDateTime(filterObject.DateTo);
+                    if (dateTo != DateTime.MinValue)
                     {
-                        salesInfos = salesInfos.Where(x => x.SaleInfoDate >= dateFrom);
+                        salesInfos = salesInfos.Where(x => x.SaleInfoDate <= dateTo);
                     }
                 }
                 if (!String.IsNullOrEmpty(filterObject.Region))

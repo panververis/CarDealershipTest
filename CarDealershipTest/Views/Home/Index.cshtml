@@ -1,4 +1,8 @@
 ﻿<script src="~/Scripts/angular.min.js"></script>
+<script src="~/Scripts/app/app.module.js"></script>
+<script src="~/Scripts/app/main.js"></script>
+@*<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>*@
+<script src="https://code.highcharts.com/highcharts.js"></script>
 
 <style>
     .SalesTable, .SalesTd, .SalesTh {
@@ -62,7 +66,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <div id="tblSales">
                     <table class ="SalesTable">
                         <tr>
@@ -88,11 +92,9 @@
                     </table>
                 </div>
             </div>
-            <div class="col-md-4">
-                
+            <div class="col-md-6">
+                <div id="container">Placeholder for chart</div>
             </div>
         </div>
-        <script src="~/Scripts/app/app.module.js"></script>
-        <script src="~/Scripts/app/main.js"></script>
     </div>
 </div>
