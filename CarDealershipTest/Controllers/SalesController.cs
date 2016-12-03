@@ -91,6 +91,7 @@ namespace CarDealershipTest.Controllers
                 }
             }
 
+            //order the result by the appropriate fields
             salesInfos = salesInfos.OrderBy(x => x.DealerName).ThenBy(y => y.SaleInfoDate);
 
             //initializing the to-be-returned List of Sales
