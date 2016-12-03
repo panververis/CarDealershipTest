@@ -16,7 +16,8 @@
             }
         })
         .directive('hcPieChart', function () {
-            return { restrict: 'E', template: '<div></div>',
+            return {
+                restrict: 'E', template: '<div></div>',
                 scope: { title: '@', data: '=' },
                 link: function (scope, element) {
                     Highcharts.chart(element[0], {
@@ -29,20 +30,20 @@
                         },
                         series: [{ data: scope.data }]
                     });
-                },
+                }
             };
         })
     .controller('main', ['SalesService', 'StaffSalesService', '$scope', function (salesService, staffSalesService, $scope) {
         searchFunc();
 
-        //var something = [{ name: "Microsoft Internet Explorer", y: 56.33 },
-        //                { name: "Chrome", y: 24.03, sliced: true, selected: true },
-        //                { name: "Firefox", y: 10.38 },
-        //                { name: "Safari", y: 4.77 },
-        //                { name: "Opera", y: 0.91 },
-        //                { name: "Proprietary or Undetectable", y: 0.2 }];
+        var something = [{ name: "Microsoft Internet Explorer", y: 56.33 },
+                        { name: "Chrome", y: 24.03, sliced: true, selected: true },
+                        { name: "Firefox", y: 10.38 },
+                        { name: "Safari", y: 4.77 },
+                        { name: "Opera", y: 0.91 },
+                        { name: "Proprietary or Undetectable", y: 0.2 }];
 
-        //$scope.pieData = something;
+        $scope.pieData = something;
 
         //define the "Search" Function
         $scope.search = searchFunc;
